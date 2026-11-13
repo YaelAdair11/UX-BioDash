@@ -28,7 +28,26 @@ Implementa la documentación técnica en [`Documentación Tecnica/`](Documentaci
    ```
    Flyway crea el esquema (`src/main/resources/db/migration`) y Hibernate lo valida al iniciar.
 
-**Pruebas:** `./mvnw test` — unitarias + integración de extremo a extremo contra un PostgreSQL 17 embebido (no requiere Docker ni credenciales).
+**Pruebas:** `./mvnw test` — unitarias + integración de extremo a extremo contra un PostgreSQL 17 embebido (no requiere Docker ni credenciales). Incluye binarios para Windows, Linux y macOS (Intel y Apple Silicon).
+
+### macOS
+
+```bash
+brew install openjdk@17 postgresql@17
+brew services start postgresql@17
+createdb uxbiodash
+```
+
+Homebrew crea el superusuario con tu nombre de usuario de macOS y sin contraseña (no `postgres`/`postgres`), así que exporta las credenciales antes de arrancar:
+
+```bash
+export DB_USERNAME="$USER"
+export DB_PASSWORD=""
+./mvnw spring-boot:run
+```
+
+Alternativa: `docker compose up -d` (Docker Desktop o OrbStack) usa `postgres`/`postgres` y no requiere variables.
+Si al ejecutar `./mvnw` aparece `permission denied`, da permiso de ejecución con `chmod +x mvnw` (en el repositorio ya está marcado como ejecutable).
 
 ## Arquitectura
 

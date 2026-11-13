@@ -37,6 +37,12 @@
 			<version>${embedded-postgres.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- embedded-postgres solo trae binarios x86_64; este agrega los de macOS con Apple Silicon (M1 en adelante) -->
+		<dependency>
+			<groupId>io.zonky.test.postgres</groupId>
+			<artifactId>embedded-postgres-binaries-darwin-arm64v8</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
