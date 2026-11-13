@@ -62,6 +62,7 @@ function crearVentana() {
     minWidth: 1100,
     minHeight: 700,
     title: 'UX-BioDash',
+    icon: path.join(__dirname, 'icono.png'),
     backgroundColor: '#0b1220',
     show: false,
     autoHideMenuBar: true,

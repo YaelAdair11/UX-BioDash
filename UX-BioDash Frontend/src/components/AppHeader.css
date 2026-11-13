@@ -4,7 +4,7 @@
 }
 .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); flex: none; }
 .logo:hover { text-decoration: none; }
-.logo-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--brand-bg); color: var(--brand-fg); border: 1px solid var(--brand-border); }
+.logo-mark { display: block; width: 32px; height: 32px; object-fit: contain; }
 .logo-text { font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
 .workspace { display: flex; flex-direction: column; line-height: 1.2; padding-left: 20px; border-left: 1px solid var(--border); }
 .workspace-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }

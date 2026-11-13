@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { ScanEye, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Input, InputGroup } from '@ui-sdk/react/input'
 import { ThemeMenu } from './ThemeMenu'
 import './AppHeader.css'
@@ -7,7 +7,7 @@ import './AppHeader.css'
 export function Logo() {
   return (
     <Link to="/" className="logo" aria-label="UX-BioDash, ir a proyectos">
-      <span className="logo-mark"><ScanEye size={18} /></span>
+      <img className="logo-mark" src="/logo.png" alt="" width={32} height={32} />
       <span className="logo-text">UX-BioDash</span>
     </Link>
   )
