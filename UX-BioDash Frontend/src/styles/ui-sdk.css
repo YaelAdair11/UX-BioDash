@@ -1,0 +1,79 @@
+/*
+ * Puente entre los temas de UX-BioDash y los tokens de ui-sdk (web.css).
+ * Los tokens apuntan a las variables de cada tema, así que cambiar de tema
+ * (oscuro, pizarra, claro, contraste) recolorea también los componentes de ui-sdk.
+ */
+:root {
+  --ui-background: var(--surface-2);
+  --ui-foreground: var(--text);
+  --ui-muted: var(--surface-3);
+  --ui-muted-foreground: var(--text-2);
+  --ui-border: var(--border);
+  --ui-input: var(--border-strong);
+  --ui-primary: var(--accent);
+  --ui-primary-foreground: var(--on-accent, #fff);
+  --ui-destructive: var(--danger);
+  --ui-ring: var(--accent-strong);
+  --ui-ring-border: var(--accent-strong);
+  --ui-shadow: var(--shadow);
+  --ui-radius: var(--radius);
+  --ui-spacing: 4.5px; /* controles de 36 px, igual que .btn e .input */
+  --ui-font-size: 13.5px;
+  --ui-font-sans: var(--font);
+  --ui-font-mono: var(--mono);
+}
+
+/* Superficies emergentes un poco más elevadas que los paneles */
+[data-slot='select-content'],
+[data-slot='menu-content'],
+[data-slot='popover-content'],
+[data-slot='alert-dialog-content'] {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+/* El diálogo de confirmar() no trae fondo propio: una sombra extensa oscurece la página detrás */
+[data-slot='alert-dialog-content'][role='alertdialog'] {
+  box-shadow: 0 0 0 100vmax rgba(2, 6, 23, 0.55), var(--shadow);
+}
+/* confirmar() solo se usa para eliminar: la respuesta que acepta (el último botón) va en rojo */
+[data-slot='alert-dialog-content'] [data-slot='alert-dialog-close']:last-of-type {
+  background: var(--danger); border-color: var(--danger); color: #fff;
+}
+[data-slot='alert-dialog-content'] [data-slot='alert-dialog-close']:last-of-type:hover { filter: brightness(1.1); }
+
+[data-slot='tooltip-content'] {
+  font-size: 12px;
+}
+
+/* Disparadores de Select con un icono a la izquierda (filtros) */
+.selector { display: inline-flex; align-items: center; position: relative; }
+.selector > .selector-icono { position: absolute; left: 10px; pointer-events: none; color: var(--text-3); z-index: 1; }
+.selector [data-slot='select-trigger'] { min-width: 0; background: var(--bg-elev); }
+.selector.con-icono [data-slot='select-trigger'] { padding-left: 30px; }
+
+/* Interruptor con texto y detalle */
+.interruptor { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.interruptor-texto { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.interruptor-texto small { font-size: 11.5px; color: var(--text-3); }
+.interruptor[data-disabled], .interruptor:has([data-disabled]) { cursor: default; }
+
+/* Deslizador con caja de valor */
+.deslizador { display: flex; flex-direction: column; gap: 10px; }
+.deslizador [data-slot='slider'] { min-width: 0; }
+.deslizador .value-box { margin-left: auto; }
+
+/* Segmented control con el aspecto de .segmented */
+[data-slot='segmented-control'].segmentado { background: var(--bg-elev); border: 1px solid var(--border-strong); }
+[data-slot='segmented-control'].segmentado [data-slot='segmented-control-item'] { white-space: nowrap; gap: 6px; }
+
+/* Filtros con aspecto de pestañas subrayadas */
+[data-slot='segmented-control'].pestanas { background: transparent; border: 0; padding: 0; gap: 22px; }
+.pestanas [data-slot='segmented-control-indicator'] { display: none; }
+.pestanas [data-slot='segmented-control-item'] {
+  background: transparent; padding: 8px 0 10px; height: auto; border-radius: 0;
+  color: var(--text-2); border-bottom: 2px solid transparent;
+}
+.pestanas [data-slot='segmented-control-item']:hover { color: var(--text); }
+.pestanas [data-slot='segmented-control-item'][data-checked] { color: var(--accent-strong); border-bottom-color: var(--accent-strong); font-weight: 500; }

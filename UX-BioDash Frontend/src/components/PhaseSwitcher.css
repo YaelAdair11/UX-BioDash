@@ -1,0 +1,7 @@
+.phases { display: inline-flex; gap: 4px; padding: 4px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border-strong); flex: none; }
+.phases a { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; border-radius: 7px; color: var(--text-2); font-size: 13px; white-space: nowrap; }
+.phases a:hover { color: var(--text); text-decoration: none; background: var(--surface-2); }
+.phases a.on { background: var(--phase-on); color: var(--on-accent); font-weight: 500; }
+.phases small { font-size: 10.5px; color: var(--text-3); }
+.phases a.on small { color: rgba(255, 255, 255, .75); }
+@media (max-width: 1280px) { .phases small { display: none; } }

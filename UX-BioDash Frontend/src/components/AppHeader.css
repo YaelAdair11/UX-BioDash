@@ -1,0 +1,29 @@
+.app-header {
+  display: flex; align-items: center; gap: 24px; height: 60px; padding: 0 28px;
+  background: var(--bg-elev); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20;
+}
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); flex: none; }
+.logo:hover { text-decoration: none; }
+.logo-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--brand-bg); color: var(--brand-fg); border: 1px solid var(--brand-border); }
+.logo-text { font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+.workspace { display: flex; flex-direction: column; line-height: 1.2; padding-left: 20px; border-left: 1px solid var(--border); }
+.workspace-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+.workspace-name { font-size: 12.5px; color: var(--text-2); }
+.search {
+  flex: 1; max-width: 460px; display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px;
+  border-radius: var(--radius); background: var(--bg); border: 1px solid var(--border-strong); color: var(--text-3);
+}
+.search:focus-within { border-color: var(--accent-strong); }
+.search [data-slot='input'] {
+  flex: 1; min-width: 0; height: 100%; padding: 0; border: none; background: none; outline: none; box-shadow: none;
+  color: var(--text); font-size: 13px;
+}
+.app-nav { display: flex; gap: 20px; margin-left: auto; height: 100%; }
+.app-nav a { display: flex; align-items: center; color: var(--text-2); border-bottom: 2px solid transparent; font-size: 13.5px; }
+.app-nav a:hover { color: var(--text); text-decoration: none; }
+.app-nav a.active { color: var(--text); border-bottom-color: var(--accent-strong); font-weight: 500; }
+.avatar { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--brand-bg); color: var(--brand-fg-2); font-size: 12px; font-weight: 600; border: 1px solid var(--brand-border); flex: none; }
+@media (max-width: 900px) {
+  .workspace { display: none; }
+  .app-header { gap: 14px; padding: 0 16px; }
+}

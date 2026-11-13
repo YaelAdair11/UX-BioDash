@@ -1,0 +1,25 @@
+.theme-trigger[data-open] { background: var(--accent-soft); border-color: var(--accent-border); color: var(--accent-strong); }
+.theme-pop[data-slot='menu-content'] {
+  width: 280px; display: flex; flex-direction: column; gap: 2px; padding: 8px;
+  border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border-strong); box-shadow: var(--shadow);
+}
+.theme-title { padding: 4px 8px 6px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+.theme-opt[data-slot='menu-radio-item'] {
+  display: flex; align-items: center; gap: 12px; height: auto; padding: 8px; border-radius: var(--radius);
+  border: 1px solid transparent; color: var(--text); cursor: pointer;
+}
+.theme-opt[data-highlighted] { background: var(--surface-2); }
+.theme-opt[data-checked] { background: var(--accent-soft); border-color: var(--accent-border); }
+.theme-sample {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; width: 34px; height: 34px; flex: none;
+  border-radius: 8px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--swatch-ring);
+}
+.theme-sample i:first-child { grid-row: span 2; }
+.theme-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.theme-text strong { font-size: 13px; font-weight: 500; }
+.theme-text small { font-size: 11.5px; color: var(--text-3); }
+/* web.css coloca el indicador de forma absoluta al inicio del ítem; aquí va al final, tras el texto */
+.theme-opt [data-slot='menu-item-indicator'].theme-check {
+  position: static; inset: auto; transform: none; margin: 0;
+  color: var(--accent-strong); flex: none; order: 3;
+}

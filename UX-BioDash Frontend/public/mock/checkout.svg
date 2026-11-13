@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="Inter, Segoe UI, Arial, sans-serif">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <line x1="0" y1="110" x2="1920" y2="110" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="96" y="72" font-size="44" font-weight="800" letter-spacing="8" fill="#111827">NÓRD</text>
+  <text x="1834" y="68" font-size="22" fill="#6b7280" text-anchor="end">Compra segura · Datos protegidos</text>
+  <rect x="96" y="194" width="1738" height="200" rx="10" fill="#f8fafc"/>
+  <text x="140" y="290" font-size="52" fill="#1f2937">Tu próximo favorito, a un paso.</text>
+  <text x="140" y="345" font-size="26" fill="#6b7280">Envío gratis en tu primer pedido. Diseñado para acompañarte cada día.</text>
+  <text x="96" y="475" font-size="24" fill="#111827">1. Tus datos</text>
+  <text x="250" y="475" font-size="24" fill="#9ca3af">›   2. Envío   ›   3. Pago</text>
+  <text x="96" y="545" font-size="38" fill="#111827">Completa tu pedido</text>
+  <text x="96" y="605" font-size="22" fill="#4b5563">Correo electrónico</text>
+  <rect x="96" y="620" width="1000" height="64" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="118" y="662" font-size="22" fill="#111827">maria.lopez@correo.es</text>
+  <text x="96" y="730" font-size="22" fill="#4b5563">Nombre</text>
+  <rect x="96" y="745" width="480" height="64" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="118" y="787" font-size="22" fill="#111827">María</text>
+  <text x="616" y="730" font-size="22" fill="#4b5563">Apellidos</text>
+  <rect x="616" y="745" width="480" height="64" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="638" y="787" font-size="22" fill="#111827">López García</text>
+  <text x="96" y="860" font-size="22" fill="#4b5563">Dirección de envío</text>
+  <rect x="96" y="875" width="1000" height="64" rx="6" fill="#fff" stroke="#d1d5db" stroke-width="2"/>
+  <text x="118" y="917" font-size="22" fill="#111827">Calle de Alcalá, 24 · Madrid</text>
+  <rect x="96" y="972" width="26" height="26" rx="4" fill="#0f766e"/>
+  <text x="136" y="993" font-size="20" fill="#4b5563">Guardar mis datos para la próxima compra</text>
+  <rect x="1200" y="440" width="634" height="580" rx="10" fill="#fff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="1232" y="500" font-size="30" fill="#111827">Resumen del pedido</text>
+  <rect x="1232" y="530" width="110" height="110" rx="8" fill="#e5e7eb"/>
+  <circle cx="1287" cy="585" r="30" fill="none" stroke="#6b7280" stroke-width="8"/>
+  <text x="1366" y="562" font-size="24" font-weight="600" fill="#111827">Auriculares Nórd One</text>
+  <text x="1366" y="596" font-size="19" fill="#6b7280">Gris piedra · Cantidad: 1</text>
+  <text x="1366" y="630" font-size="24" fill="#111827">89,00 €</text>
+  <line x1="1232" y1="665" x2="1802" y2="665" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="1232" y="705" font-size="22" fill="#4b5563">Subtotal</text>
+  <text x="1802" y="705" font-size="22" fill="#111827" text-anchor="end">89,00 €</text>
+  <text x="1232" y="745" font-size="22" fill="#4b5563">Envío estándar</text>
+  <text x="1802" y="745" font-size="22" fill="#16a34a" text-anchor="end">Gratis</text>
+  <text x="1232" y="800" font-size="30" fill="#111827">Total</text>
+  <text x="1802" y="805" font-size="40" font-weight="700" fill="#111827" text-anchor="end">89,00 €</text>
+  <rect x="1232" y="850" width="570" height="84" rx="8" fill="#134e4a"/>
+  <text x="1517" y="903" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle">Continuar al pago  →</text>
+  <text x="1517" y="985" font-size="19" fill="#0f766e" text-anchor="middle">Devoluciones gratuitas durante 30 días</text>
+</svg>

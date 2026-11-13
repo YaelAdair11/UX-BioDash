@@ -1,0 +1,15 @@
+[data-slot='popover-trigger'].help-trigger {
+  display: inline-grid; place-items: center; width: 20px; height: 20px; min-width: 0; padding: 0;
+  border: none; border-radius: 50%; background: transparent; color: var(--text-3); cursor: pointer; vertical-align: middle;
+}
+[data-slot='popover-trigger'].help-trigger:hover,
+[data-slot='popover-trigger'].help-trigger[data-open] { color: var(--accent-strong); background: var(--accent-soft); }
+[data-slot='popover-content'].help-pop {
+  width: 340px; max-width: calc(100vw - 24px); padding: 12px 14px 14px; text-align: left; white-space: normal;
+  font-weight: 400; color: var(--text); border-radius: var(--radius-lg);
+}
+.help-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.help-head [data-slot='popover-title'] { font-size: 14px; font-weight: 600; margin: 0; }
+.help-pop dl { margin: 0; font-size: 13px; }
+.help-pop dt { color: var(--accent-strong); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; margin-top: 10px; }
+.help-pop dd { margin: 3px 0 0; color: var(--text-2); line-height: 1.5; }

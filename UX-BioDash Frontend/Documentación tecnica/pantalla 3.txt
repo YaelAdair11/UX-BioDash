@@ -1,0 +1,48 @@
+Diseña la pantalla "Espacio de Trabajo Analítico y Editor de Áreas de Interés (AOI)" para la plataforma web SaaS de evaluación de usabilidad con eye tracking llamada "UX-BioDash".
+Resolución base de escritorio: Desktop 1440 x 900 px.
+Estética visual y design system: Modo oscuro analítico profesional (fondo general #0F172A, paneles y tarjetas modulares en #1E293B con bordes delgados en #334155, acentos interactivos principales en azul cielo #0284C7, verde esmeralda #10B981 y rojo coral #EF4444 para delimitaciones geométricas). Tipografía Inter con alta legibilidad y contraste WCAG AA.
+
+Estructura del layout de 3 columnas + barra superior (1440 x 900 px):
+
+1. BARRA SUPERIOR DE NAVEGACIÓN CONTEXTUAL (Top Navbar, 1440 x 60 px):
+- Extremo izquierdo: Logotipo "UX-BioDash" con icono biométrico en azul #0284C7 + migas de pan interactivas: "Proyectos > Estudio Checkout E-Commerce > Editor de Áreas de Interés (AOI)".
+- Centro: Selector segmentado de fase del espacio de trabajo:
+  * [1. Editor de AOI (Activo - fondo #0284C7)]
+  * [2. Dashboard Analítico (Heatmap / Scanpath)]
+- Extremo derecho:
+  * Indicador de estado de guardado automático: "Guardado en PostgreSQL • Coordenadas Normalizadas [0.0, 1.0]".
+  * Botón primario de avance: "Continuar al Análisis ->" con icono de flecha.
+
+2. BARRA LATERAL IZQUIERDA DE HERRAMIENTAS DE DIBUJO (Toolbar vertical fija, 64 x 840 px):
+- Icono 1: Cursor / Puntero de selección y edición de vértices.
+- Icono 2 (Activo, resaltado en #0284C7): Herramienta "Rectángulo AOI" para trazar cajas delimitadoras.
+- Icono 3: Herramienta "Polígono Libre AOI" para trazos irregulares punto por punto.
+- Separador horizontal sutil (#334155).
+- Icono 4: Toggle de visibilidad de fijaciones de referencia (puntos tenues de fondo para guiar al investigador sobre dónde miraron los usuarios).
+- Icono 5: Toggle de cuadrícula guía / snap-to-grid.
+- Icono 6: Herramienta de paneo (Mano) y controles de Zoom (+ / - / Ajustar a pantalla 100%).
+
+3. LIENZO CENTRAL INTERACTIVO (Canvas Workspace, ~1040 px de ancho):
+- Contenedor oscuro (#0B1120) con patrón sutil de rejilla de puntos técnicos.
+- En el centro se muestra escalada proporcionalmente la imagen del estímulo evaluado: captura de pantalla limpia de una interfaz de checkout web ("NÓRD - Completa tu pedido", resolución nativa 1920x1080 px).
+- Sobre la interfaz se muestran 3 Áreas de Interés (AOI) vectoriales dibujadas con precisión:
+  * AOI 1 (Ya guardada): Rectángulo con trazo rojo (#EF4444, grosor 2px) y relleno translúcido al 12%, enmarcando el banner superior. Etiqueta superior flotante roja: "AOI 1: Banner Hero".
+  * AOI 2 (Ya guardada): Rectángulo con trazo verde esmeralda (#10B981, grosor 2px) y relleno translúcido al 12%, enmarcando el botón principal "Continuar al pago". Etiqueta flotante verde: "AOI 2: Botón Pagar CTA".
+  * AOI 3 (En estado de dibujo activo / seleccionada): Polígono o rectángulo en azul cielo (#0284C7, grosor 2px) con nodos blancos cuadrados en las 4 esquinas para redimensionar, delimitando la caja lateral "Resumen del pedido". Etiqueta flotante azul: "AOI 3: Resumen de Compra (Editando)".
+- Barra flotante inferior sobre el canvas: Controles rápidos de escala ("Zoom: 85%"), toggle "Mostrar puntos de fijación crudos (120 fijaciones)" y coordenadas del cursor en tiempo real ("X: 0.642 | Y: 0.418").
+
+4. INSPECTOR LATERAL DERECHO DE PROPIEDADES Y LISTA DE AOIs (Panel fijo de 336 x 840 px):
+- Encabezado del panel: "Gestión de Áreas de Interés (3)" con icono de capas.
+- Tarjeta Superior: "Propiedades de la AOI Seleccionada (AOI 3)":
+  * Campo de texto editable (Input): Etiqueta -> "Resumen de Compra".
+  * Selector de color identificador (Swatches): Círculos de color (Rojo #EF4444, Verde #10B981, Azul #0284C7 [activo], Amarillo #EAB308, Morado #A855F7).
+  * Geometría y Coordenadas Normalizadas (solo lectura técnica): Badge "Rectángulo" | "X: 0.52 - 0.84 | Y: 0.31 - 0.68".
+  * Vista previa de impacto biométrico en vivo: "28 fijaciones capturadas dentro de esta geometría (19.4% del total)".
+  * Botones de acción de la tarjeta: "Guardar Cambios" (primario azul) y "Eliminar" (icono de papelera rojo).
+- Lista Inferior: "AOIs Definidas en este Estímulo":
+  * Item 1: Punto rojo (#EF4444), título "AOI 1: Banner Hero", subtítulo "Rectángulo • 14 fijaciones", iconos de candado abierto, ojo visible y editar.
+  * Item 2: Punto verde (#10B981), título "AOI 2: Botón Pagar CTA", subtítulo "Rectángulo • 7 fijaciones", iconos de candado abierto, ojo visible y editar.
+  * Item 3 (Resaltado con borde azul): Punto azul (#0284C7), título "AOI 3: Resumen de Compra", subtítulo "Rectángulo • 28 fijaciones", iconos de edición.
+- Botón inferior fijo en el inspector: "+ Trazar Nueva Área de Interés" con borde discontinuo.
+
+Asegurar distribución con Auto Layout de Figma, bordes redondeados de 8px (rounded-lg), espaciado modular de 8px y jerarquía visual limpia para que el investigador delimite zonas sin obstruir la interfaz evaluada.

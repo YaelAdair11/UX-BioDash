@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="Inter, Segoe UI, Arial, sans-serif">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <text x="115" y="80" font-size="40" font-weight="800" fill="#0f172a">nexus.</text>
+  <g font-size="22" fill="#475569">
+    <text x="1180" y="78">Producto</text><text x="1330" y="78">Soluciones</text>
+    <text x="1490" y="78">Recursos</text><text x="1640" y="78">Iniciar sesión</text>
+  </g>
+  <text x="115" y="330" font-size="70" font-weight="700" fill="#0f172a">Convierte tus datos en</text>
+  <text x="115" y="415" font-size="70" font-weight="700" fill="#0f172a">mejores decisiones.</text>
+  <text x="115" y="490" font-size="26" fill="#64748b">Todo lo que tu equipo necesita para decidir en un solo lugar.</text>
+  <rect x="115" y="610" width="330" height="80" rx="10" fill="#2563eb"/>
+  <text x="280" y="660" font-size="26" fill="#fff" text-anchor="middle">Agenda una demo</text>
+  <rect x="1120" y="250" width="700" height="460" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="1160" y="310" font-size="24" fill="#0f172a">Rendimiento del equipo</text>
+  <g font-size="26" fill="#0f172a">
+    <rect x="1160" y="340" width="190" height="90" rx="8" fill="#fff" stroke="#e2e8f0"/><text x="1185" y="400">+18,4%</text>
+    <rect x="1370" y="340" width="190" height="90" rx="8" fill="#fff" stroke="#e2e8f0"/><text x="1395" y="400">+24,8%</text>
+    <rect x="1580" y="340" width="190" height="90" rx="8" fill="#fff" stroke="#e2e8f0"/><text x="1605" y="400">92,1%</text>
+  </g>
+  <polyline points="1160,650 1260,600 1360,620 1460,540 1560,570 1660,500 1770,520" fill="none" stroke="#2563eb" stroke-width="5"/>
+  <rect x="0" y="860" width="1920" height="220" fill="#f1f5f9"/>
+  <g font-size="24" fill="#64748b">
+    <text x="200" y="980">Confían en nosotros:</text>
+    <text x="560" y="980" font-weight="700">ACME</text><text x="800" y="980" font-weight="700">Globex</text>
+    <text x="1050" y="980" font-weight="700">Initech</text><text x="1300" y="980" font-weight="700">Umbrella</text>
+  </g>
+</svg>

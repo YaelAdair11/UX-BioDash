@@ -1,0 +1,19 @@
+.stage {
+  position: relative; flex: 1; min-height: 0; overflow: auto;
+  display: grid; place-items: center; padding: 24px;
+}
+.stage-frame {
+  position: relative; flex: none; background: #fff; border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  background-image: repeating-conic-gradient(#e5e7eb 0 25%, #f8fafc 0 50%);
+  background-size: 18px 18px;
+}
+.stage-frame img { display: block; user-select: none; border-radius: 4px; transition: opacity .2s; }
+.stage-layer { position: absolute; inset: 0; }
+.stage-interactive { touch-action: none; }
+/* Variante del editor: fondo oscuro con rejilla de puntos técnicos */
+.stage-editor {
+  background-color: var(--canvas-bg);
+  background-image: radial-gradient(var(--canvas-dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
