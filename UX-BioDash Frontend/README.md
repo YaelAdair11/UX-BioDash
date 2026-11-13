@@ -19,8 +19,20 @@ pnpm dev           # versión web en http://localhost:5173
 |---|---|
 | `pnpm electron:dev` | Vite en el puerto 5180 + ventana de Electron con recarga en caliente y DevTools |
 | `pnpm electron:start` | Compila y abre la app como en producción |
-| `pnpm electron:pack` | Genera la app sin instalador en `release/win-unpacked/` |
-| `pnpm electron:dist` | Genera el instalador (NSIS en Windows, DMG en macOS, AppImage en Linux) en `release/` |
+| `pnpm electron:pack` | Genera la app sin instalador en `release/` (`win-unpacked/` en Windows, `mac-arm64/` o `mac/` en macOS) |
+| `pnpm electron:dist` | Genera el instalador del sistema actual (NSIS en Windows, DMG en macOS, AppImage en Linux) en `release/` |
+| `pnpm electron:dist:mac` | Genera los DMG de macOS para Apple Silicon (`arm64`) e Intel (`x64`) |
+
+### macOS
+
+- Requisitos: Node.js 20+, pnpm (`brew install pnpm` o `corepack enable`) y, para el backend, Java 17 y PostgreSQL 17 (ver el README del backend).
+- Los instaladores de macOS **solo se pueden generar desde una Mac** (electron-builder no crea DMG en Windows). El ícono se toma de `build/icon.png` (1024×1024).
+- La app no está firmada ni notarizada con un certificado de Apple Developer, así que la primera vez Gatekeeper la bloquea. Ábrela con clic derecho → **Abrir**, o quita la cuarentena:
+  ```bash
+  xattr -cr /Applications/UX-BioDash.app
+  ```
+- En macOS la app conserva el menú nativo (UX-BioDash, Edición, Ventana) para que funcionen `Cmd+C`, `Cmd+V`, `Cmd+Z`, `Cmd+Q` y `Cmd+W`; en Windows y Linux no se muestra menú. Al cerrar la ventana la app sigue en el Dock, como es habitual en Mac.
+- La tecla para eliminar una AOI aparece como `⌫` (delete) en Mac y como `Supr` en Windows; ambas funcionan.
 
 - `electron/main.mjs` sirve `dist/` con el protocolo propio `app://` y reenvía `/api/*` al backend, así que el frontend usa las mismas rutas que en la web y no hay problemas de CORS. URL del backend: variable `UXBIODASH_BACKEND_URL` (por defecto `http://localhost:8080`).
 - `electron/preload.cjs` expone solo `window.uxbiodash` (plataforma y versiones, de solo lectura). La ventana usa `contextIsolation`, `sandbox` y sin `nodeIntegration`; los enlaces externos se abren en el navegador del sistema.

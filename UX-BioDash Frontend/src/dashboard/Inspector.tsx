@@ -10,6 +10,7 @@ import { ms, num } from '../lib/format'
 import { Deslizador } from '../ui/Deslizador'
 import { Interruptor } from '../ui/Interruptor'
 import { Pista } from '../ui/Pista'
+import { TECLA_ELIMINAR } from '../lib/plataforma'
 
 export type EstadoGuardado = 'guardado' | 'guardando' | 'error'
 /** Cada botón de la barra lateral izquierda abre su propio panel. */
@@ -119,7 +120,7 @@ function PanelSeleccion(p: Props) {
           <div><span>Fijaciones</span><strong>{num(m?.conteoFijaciones ?? 0)}</strong></div>
           <div><span>Revisitas</span><strong>{m?.revisitas == null ? '—' : num(m.revisitas)}</strong></div>
         </div>
-        <p className="subtle" style={{ fontSize: 12 }}>Arrastra la AOI para moverla o sus esquinas para redimensionarla. <kbd>Supr</kbd> la elimina.</p>
+        <p className="subtle" style={{ fontSize: 12 }}>Arrastra la AOI para moverla o sus esquinas para redimensionarla. <kbd>{TECLA_ELIMINAR}</kbd> la elimina.</p>
       </section>
     </>
   )

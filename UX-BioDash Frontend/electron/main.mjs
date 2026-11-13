@@ -18,6 +18,26 @@ const BACKEND_URL = (process.env.UXBIODASH_BACKEND_URL ?? 'http://localhost:8080
 const DIST = path.join(__dirname, '..', 'dist')
 const ESQUEMA = 'app'
 const ORIGEN = `${ESQUEMA}://uxbiodash`
+const ES_MAC = process.platform === 'darwin'
+const ICONO = path.join(__dirname, 'icono.png')
+
+/**
+ * En macOS, quitar el menú de la aplicación también desactiva los atajos del sistema
+ * (Cmd+C / Cmd+V / Cmd+Z en los campos de texto, Cmd+Q, Cmd+W, Cmd+M), así que se deja
+ * un menú mínimo con los roles nativos. En Windows y Linux no se muestra menú.
+ */
+function configurarMenu() {
+  if (!ES_MAC) {
+    if (!DEV_URL) Menu.setApplicationMenu(null)
+    return
+  }
+  Menu.setApplicationMenu(Menu.buildFromTemplate([
+    { role: 'appMenu' },
+    { role: 'editMenu' },
+    ...(DEV_URL ? [{ role: 'viewMenu' }] : []),
+    { role: 'windowMenu' },
+  ]))
+}
 
 // Debe registrarse antes de que la app esté lista
 protocol.registerSchemesAsPrivileged([
@@ -62,7 +82,8 @@ function crearVentana() {
     minWidth: 1100,
     minHeight: 700,
     title: 'UX-BioDash',
-    icon: path.join(__dirname, 'icono.png'),
+    // En macOS el ícono de la ventana lo define el paquete .app (build/icon.png); esta opción solo aplica a Windows/Linux
+    icon: ICONO,
     backgroundColor: '#0b1220',
     show: false,
     autoHideMenuBar: true,
@@ -110,7 +131,9 @@ if (!app.requestSingleInstanceLock()) {
   })
 
   app.whenReady().then(() => {
-    if (!DEV_URL) Menu.setApplicationMenu(null)
+    configurarMenu()
+    // Sin empaquetar (pnpm electron:dev / electron:start) el Dock mostraría el ícono genérico de Electron
+    if (ES_MAC && !app.isPackaged) app.dock?.setIcon(ICONO)
     registrarProtocolo()
     crearVentana()
     app.on('activate', () => {
@@ -119,6 +142,6 @@ if (!app.requestSingleInstanceLock()) {
   })
 
   app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
+    if (!ES_MAC) app.quit()
   })
 }

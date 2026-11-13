@@ -22,6 +22,7 @@ import { Toggle, ToggleIcon } from '@ui-sdk/react/toggle'
 import { Segmentado } from '../ui/Segmentado'
 import { Selector } from '../ui/Selector'
 import { Pista } from '../ui/Pista'
+import { TECLA_ELIMINAR } from '../lib/plataforma'
 import { confirmar } from '../ui/confirmar'
 import './DashboardPage.css'
 
@@ -438,7 +439,7 @@ export function DashboardPage() {
       <MetricsPanel metricas={metricas} aois={aois} cargando={cargandoMetricas} sesionSeleccionada={sesionId} />
 
       <footer className="dash-foot subtle">
-        <HelpCircle size={13} /> Atajos: <kbd>V</kbd> seleccionar · <kbd>R</kbd> dibujar AOI · <kbd>Supr</kbd> eliminar AOI · <kbd>Espacio</kbd> reproducir · doble clic en una AOI del inspector para renombrarla
+        <HelpCircle size={13} /> Atajos: <kbd>V</kbd> seleccionar · <kbd>R</kbd> dibujar AOI · <kbd>{TECLA_ELIMINAR}</kbd> eliminar AOI · <kbd>Espacio</kbd> reproducir · doble clic en una AOI del inspector para renombrarla
       </footer>
     </div>
   )

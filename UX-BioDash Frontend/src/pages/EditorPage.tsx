@@ -23,6 +23,7 @@ import type { AreaInteres, CoordenadasAoi, ErrorApi, Estimulo, Fijacion, FormaGe
 import { StimulusStage, type Herramienta, type Rejilla } from '../viz/StimulusStage'
 import { dentro } from '../lib/geometry'
 import { num } from '../lib/format'
+import { TECLA_ELIMINAR } from '../lib/plataforma'
 import './EditorPage.css'
 
 /** Colores que se asignan por turno a las AOIs nuevas: los 5 del diseño y después el resto de la paleta. */
@@ -422,7 +423,7 @@ export function EditorPage() {
                 </div>
                 <div className="row">
                   <button type="submit" className="btn btn-primary" style={{ flex: 1 }} disabled={!sucio || !etiqueta.trim()}><Check size={15} /> Guardar cambios</button>
-                  <Pista texto="Eliminar AOI" atajo="Supr" lado="top">
+                  <Pista texto="Eliminar AOI" atajo={TECLA_ELIMINAR} lado="top">
                     <Button className="btn btn-danger" aria-label="Eliminar AOI" onClick={() => eliminarAoi(actual)}><Trash2 size={15} aria-hidden /></Button>
                   </Pista>
                 </div>
