@@ -1,0 +1,106 @@
+[
+  {
+    "clave": "heatmap",
+    "titulo": "Mapa de calor",
+    "queRepresenta": "Manchas de color que marcan las zonas donde los participantes miraron más tiempo o más veces. Los colores cálidos indican mayor concentración de la atención.",
+    "datosUtilizados": ["Coordenadas X e Y de cada fijación", "Duración de cada fijación (ponderación)", "Captura de pantalla del estímulo"],
+    "aspectosObservables": ["¿Qué partes de la interfaz llaman la atención de un vistazo?", "¿Qué elementos importantes pasaron desapercibidos?", "¿La atención se concentra donde el diseño lo esperaba?"],
+    "consideraciones": ["Es una vista agregada: no muestra el orden en que se miró.", "Una zona caliente puede significar interés, pero también confusión o dificultad de lectura.", "Con pocos participantes, una sola persona puede dominar el mapa."]
+  },
+  {
+    "clave": "scanpath",
+    "titulo": "Ruta de la mirada (scanpath)",
+    "queRepresenta": "Círculos en cada punto donde se detuvo la vista, unidos por líneas numeradas en orden de aparición. Muestra paso a paso cómo exploró la pantalla el participante.",
+    "datosUtilizados": ["Tiempo de inicio de cada fijación", "Coordenadas X e Y", "Duración de cada fijación (tamaño del círculo)"],
+    "aspectosObservables": ["¿El usuario vio el botón principal antes o después del banner?", "¿Hubo regresiones constantes a zonas ya vistas?", "¿El orden de lectura sigue la jerarquía visual del diseño?"],
+    "consideraciones": ["Se interpreta por participante; superponer muchas rutas genera ruido.", "Regresar a una zona puede indicar duda, pero también verificación deliberada."]
+  },
+  {
+    "clave": "distribucion",
+    "titulo": "Distribución de fijaciones",
+    "queRepresenta": "Puntos limpios en la pantalla que indican dónde se posó la mirada, sin conectarlos ni pintar manchas de calor.",
+    "datosUtilizados": ["Coordenadas X e Y de las muestras clasificadas como fijación"],
+    "aspectosObservables": ["¿La persona miró exactamente dentro o fuera de un botón?", "¿Hay grupos de puntos alrededor de elementos concretos?"],
+    "consideraciones": ["La precisión depende de la calibración del equipo (errores típicos de 0.5 a 1 grado visual).", "No refleja el tiempo invertido en cada punto."]
+  },
+  {
+    "clave": "aoi",
+    "titulo": "Áreas de interés (AOI)",
+    "queRepresenta": "Cuadros o polígonos dibujados sobre botones, imágenes o textos para separarlos del resto de la pantalla y medir la atención que reciben.",
+    "datosUtilizados": ["Límites del área en coordenadas normalizadas", "Nombre del área", "Fijaciones de cada participante"],
+    "aspectosObservables": ["¿Qué zonas clave recibieron atención y cuáles se ignoraron?", "¿Cuánto tiempo y cuántas veces se miró cada componente?"],
+    "consideraciones": ["Áreas muy pequeñas pueden perder fijaciones por imprecisión del equipo; deje un pequeño margen.", "Si dos áreas se solapan, la fijación se asigna a la más pequeña (la más específica)."]
+  },
+  {
+    "clave": "transiciones",
+    "titulo": "Transiciones entre áreas",
+    "queRepresenta": "Cuántas veces la vista saltó de un área de interés a otra y con qué probabilidad.",
+    "datosUtilizados": ["Orden de visita a las áreas", "Asignación de cada fijación a un área"],
+    "aspectosObservables": ["¿La persona siguió el camino pensado por el diseñador?", "¿Dudó yendo y viniendo entre dos opciones?"],
+    "consideraciones": ["Las fijaciones fuera de toda área se omiten al construir la secuencia.", "Muchas transiciones entre dos elementos distantes pueden indicar mala organización visual."]
+  },
+  {
+    "clave": "numero_fijaciones",
+    "titulo": "Número de fijaciones",
+    "queRepresenta": "Cantidad total de pausas de la mirada por participante, por pantalla o por área.",
+    "datosUtilizados": ["Fijaciones detectadas por el fabricante o por el algoritmo I-VT"],
+    "aspectosObservables": ["¿Cuánto trabajo le costó a cada persona explorar la pantalla?"],
+    "consideraciones": ["Muchas fijaciones suelen delatar búsqueda ineficiente, pero dependen también de la duración de la tarea; compare la tasa por segundo."]
+  },
+  {
+    "clave": "duracion_fijaciones",
+    "titulo": "Duración de las fijaciones",
+    "queRepresenta": "Tiempo continuo en que la mirada permanece estable sobre un punto (típicamente entre 150 y 300 ms).",
+    "datosUtilizados": ["Inicio y fin de cada fijación en milisegundos"],
+    "aspectosObservables": ["¿Qué textos o iconos exigieron más esfuerzo de procesamiento?"],
+    "consideraciones": ["Una mirada muy larga en un texto puede indicar mala redacción o dificultad para entenderlo, pero también interés genuino."]
+  },
+  {
+    "clave": "dwell_time",
+    "titulo": "Tiempo de permanencia (dwell time)",
+    "queRepresenta": "Tiempo acumulado dentro de un área, sumando fijaciones y saltos internos de cada visita. También se expresa como porcentaje del tiempo total.",
+    "datosUtilizados": ["Fijaciones dentro del área", "Inicio y fin de cada visita"],
+    "aspectosObservables": ["¿Qué porcentaje del tiempo se quedó la vista en un botón o sección?", "¿Algún componente fue completamente omitido (dwell = 0)?"],
+    "consideraciones": ["Un dwell excesivo en instrucciones o formularios puede señalar confusión en el flujo."]
+  },
+  {
+    "clave": "visitas",
+    "titulo": "Visitas a áreas de interés",
+    "queRepresenta": "Cuántas veces entró y salió la mirada de una zona.",
+    "datosUtilizados": ["Secuencia de fijaciones dentro y fuera del área"],
+    "aspectosObservables": ["¿El usuario tuvo que releer un párrafo varias veces?"],
+    "consideraciones": ["Varias visitas cortas no equivalen a una visita larga; revíselo junto con el dwell time."]
+  },
+  {
+    "clave": "ttff",
+    "titulo": "Tiempo hasta la primera fijación (TTFF)",
+    "queRepresenta": "Milisegundos desde el inicio de la prueba hasta que la persona miró por primera vez un área.",
+    "datosUtilizados": ["Tiempo de inicio de la primera fijación dentro del área (base t = 0 ms)"],
+    "aspectosObservables": ["¿Qué elemento atrajo la vista primero?", "¿El botón clave compite con distractores visuales?"],
+    "consideraciones": ["Si el área nunca se miró, el TTFF queda vacío: revise también el porcentaje de participantes que la vieron.", "Un TTFF bajo indica saliencia, no necesariamente comprensión."]
+  },
+  {
+    "clave": "comparacion_participantes",
+    "titulo": "Comparación entre participantes",
+    "queRepresenta": "Tabla con las métricas globales de cada participante en la misma pantalla.",
+    "datosUtilizados": ["Número y duración de fijaciones", "Duración total de la sesión", "Amplitud de sacadas"],
+    "aspectosObservables": ["¿Alguien tuvo un comportamiento muy distinto al resto?"],
+    "consideraciones": ["Diferencias en la calidad de captura (tasa de muestreo, registros descartados) pueden explicar valores atípicos."]
+  },
+  {
+    "clave": "comparacion_condiciones",
+    "titulo": "Comparación entre condiciones (A/B)",
+    "queRepresenta": "Resumen por pantalla del proyecto para contrastar versiones de un diseño.",
+    "datosUtilizados": ["Métricas promedio de los participantes de cada estímulo"],
+    "aspectosObservables": ["¿Qué versión del diseño requirió menos esfuerzo visual?"],
+    "consideraciones": ["El sistema no aplica pruebas estadísticas ni emite conclusiones: el juicio final es del evaluador."]
+  },
+  {
+    "clave": "coeficiente_k",
+    "titulo": "Coeficiente K (atención ambiental / focal)",
+    "queRepresenta": "Compara la duración estandarizada de cada fijación con la amplitud de la sacada siguiente (Krejtz et al., 2016).",
+    "datosUtilizados": ["Duración de cada fijación", "Amplitud angular de la sacada posterior"],
+    "aspectosObservables": ["¿El usuario estaba analizando detalles o buscando referencias visuales?"],
+    "consideraciones": ["K > 0: procesamiento focal (fijaciones largas y sacadas cortas). K < 0: exploración ambiental (fijaciones breves y sacadas amplias).", "La amplitud en grados depende de la distancia y el tamaño de pantalla configurados."]
+  }
+]
