@@ -1,0 +1,15 @@
+# Alternativa opcional a la instalacion local de PostgreSQL 17
+services:
+  postgres:
+    image: postgres:17
+    container_name: uxbiodash-postgres
+    environment:
+      POSTGRES_DB: uxbiodash
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - uxbiodash-data:/var/lib/postgresql/data
+volumes:
+  uxbiodash-data:
