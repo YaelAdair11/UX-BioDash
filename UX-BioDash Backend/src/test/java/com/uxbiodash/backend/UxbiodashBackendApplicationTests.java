@@ -207,6 +207,21 @@ class UxbiodashBackendApplicationTests {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    void jsonMalEscritoUsaElFormatoDeErrorDelContrato() throws Exception {
+        MvcResult r = mvc.perform(post("/api/proyectos").contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"nombre\": malformado"))
+                .andExpect(status().isBadRequest()).andReturn();
+        JsonNode error = leer(r);
+        assertThat(error.get("status").asInt()).isEqualTo(400);
+        assertThat(error.get("mensaje").asString()).contains("JSON valido");
+        assertThat(error.get("detalles").isArray()).isTrue();
+        assertThat(error.has("timestamp")).isFalse();
+
+        mvc.perform(post("/api/proyectos").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
+
     /** Recorre los endpoints tal como los llama el frontend (docs/API_CONTRACT.md). */
     @Test
     void contratoDelFrontend() throws Exception {

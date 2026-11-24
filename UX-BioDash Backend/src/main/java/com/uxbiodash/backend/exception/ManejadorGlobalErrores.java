@@ -4,6 +4,7 @@ import com.uxbiodash.backend.web.dto.ApiDtos.ErrorApi;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -43,6 +44,13 @@ public class ManejadorGlobalErrores {
             MethodArgumentTypeMismatchException.class})
     public ResponseEntity<ErrorApi> parametroFaltante(Exception ex) {
         return respuesta(HttpStatus.BAD_REQUEST, "Solicitud invalida: " + ex.getMessage(), List.of());
+    }
+
+    /** Cuerpo ausente o JSON mal escrito: sin esto Spring responde con su formato por defecto. */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorApi> cuerpoIlegible(HttpMessageNotReadableException ex) {
+        return respuesta(HttpStatus.BAD_REQUEST, "El cuerpo de la solicitud no es un JSON valido.",
+                List.of("Revisa que el cuerpo este completo y bien escrito (comillas, comas y llaves)."));
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
