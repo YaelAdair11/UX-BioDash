@@ -12,7 +12,9 @@ export const COLUMNAS_REQUERIDAS: ColumnaRequerida[] = ['participante', 'tiempo'
 
 const SINONIMOS: Record<Columna, string[]> = {
   participante: ['participante', 'participant', 'sujeto', 'codigo_sujeto', 'usuario', 'user', 'subject', 'recording', 'recordingname', 'participantname', 'id_participante'],
-  tiempo: ['tiempo', 'tiempo_ms', 'timestamp', 'time', 'time_ms', 'ms', 't', 'recordingtimestamp', 'eyetrackertimestamp', 'marca_tiempo'],
+  // Incluye el inicio de cada fijación (archivos de fijaciones, mismos alias que acepta el backend en DetectorFormato).
+  tiempo: ['tiempo', 'tiempo_ms', 'timestamp', 'time', 'time_ms', 'ms', 't', 'recordingtimestamp', 'eyetrackertimestamp', 'marca_tiempo',
+    'inicio_ms', 'inicio', 'start_ms', 'start', 'start_time', 'timestamp_ms'],
   x: ['x', 'gaze_x', 'gazex', 'x_px', 'gazepointx', 'gazepointx(mcsnorm)', 'fpogx', 'bpogx', 'x_mirada', 'mirada_x', 'fixationpointx', 'fixationpointx(mcsnorm)'],
   y: ['y', 'gaze_y', 'gazey', 'y_px', 'gazepointy', 'gazepointy(mcsnorm)', 'fpogy', 'bpogy', 'y_mirada', 'mirada_y', 'fixationpointy', 'fixationpointy(mcsnorm)'],
   pantalla: ['pantalla', 'estimulo', 'screen', 'stimulus', 'presentedstimulusname', 'media'],
