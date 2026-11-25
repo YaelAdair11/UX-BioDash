@@ -10,15 +10,26 @@ export type Columna = ColumnaRequerida | ColumnaOpcional
 
 export const COLUMNAS_REQUERIDAS: ColumnaRequerida[] = ['participante', 'tiempo', 'x', 'y']
 
+// Mismos alias que reconoce el backend (DetectorFormato) para Tobii, EyeLink, Gazepoint y el formato genérico,
+// escritos sin espacios porque `normalizar` los elimina. Si se agrega un alias en el backend, agregarlo aquí también.
 const SINONIMOS: Record<Columna, string[]> = {
-  participante: ['participante', 'participant', 'sujeto', 'codigo_sujeto', 'usuario', 'user', 'subject', 'recording', 'recordingname', 'participantname', 'id_participante'],
-  // Incluye el inicio de cada fijación (archivos de fijaciones, mismos alias que acepta el backend en DetectorFormato).
+  participante: ['participante', 'participant', 'participant_id', 'participantid', 'sujeto', 'codigo_sujeto', 'usuario', 'user', 'user_id',
+    'subject', 'subject_id', 'recording', 'recordingname', 'participantname', 'id_participante',
+    'recording_session_label'],
+  // Incluye el inicio de cada fijación (archivos de fijaciones).
   tiempo: ['tiempo', 'tiempo_ms', 'timestamp', 'time', 'time_ms', 'ms', 't', 'recordingtimestamp', 'eyetrackertimestamp', 'marca_tiempo',
-    'inicio_ms', 'inicio', 'start_ms', 'start', 'start_time', 'timestamp_ms'],
-  x: ['x', 'gaze_x', 'gazex', 'x_px', 'gazepointx', 'gazepointx(mcsnorm)', 'fpogx', 'bpogx', 'x_mirada', 'mirada_x', 'fixationpointx', 'fixationpointx(mcsnorm)'],
-  y: ['y', 'gaze_y', 'gazey', 'y_px', 'gazepointy', 'gazepointy(mcsnorm)', 'fpogy', 'bpogy', 'y_mirada', 'mirada_y', 'fixationpointy', 'fixationpointy(mcsnorm)'],
-  pantalla: ['pantalla', 'estimulo', 'screen', 'stimulus', 'presentedstimulusname', 'media'],
-  duracion: ['duracion', 'duracion_ms', 'duration', 'gazeeventduration', 'fixation_duration', 'fpogd'],
+    'inicio_ms', 'inicio', 'start_ms', 'start', 'start_time', 'timestamp_ms',
+    'starttimestamp', 'eyemovementstarttimestamp', 'current_fix_start'],
+  x: ['x', 'gaze_x', 'gazex', 'x_px', 'gazepointx', 'fpogx', 'bpogx', 'x_mirada', 'mirada_x', 'fixationpointx',
+    'average_gaze_x', 'gx', 'right_gaze_x', 'left_gaze_x', 'current_fix_x',
+    'avg_x', 'coord_x', 'x_raw', 'x_normalizado', 'fixation_x', 'fijacion_x', 'pos_x'],
+  y: ['y', 'gaze_y', 'gazey', 'y_px', 'gazepointy', 'fpogy', 'bpogy', 'y_mirada', 'mirada_y', 'fixationpointy',
+    'average_gaze_y', 'gy', 'right_gaze_y', 'left_gaze_y', 'current_fix_y',
+    'avg_y', 'coord_y', 'y_raw', 'y_normalizado', 'fixation_y', 'fijacion_y', 'pos_y'],
+  pantalla: ['pantalla', 'estimulo', 'screen', 'screen_id', 'stimulus', 'presentedstimulusname', 'media', 'medianame', 'media_name', 'media_id',
+    'image', 'trial_label'],
+  duracion: ['duracion', 'duracion_ms', 'duration', 'duration_ms', 'gazeeventduration', 'eyemovementduration', 'fixation_duration', 'fpogd',
+    'current_fix_duration'],
 }
 
 export interface TablaLeida {
@@ -37,8 +48,10 @@ export interface ResultadoValidacion {
   advertencias: string[]
 }
 
+// Quita acentos, comillas, espacios y la unidad entre corchetes o paréntesis, como el backend
+// (p. ej. "Recording timestamp [μs]" -> "recordingtimestamp", "Gaze point X (MCSnorm)" -> "gazepointx").
 const normalizar = (s: string) =>
-  s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[\s"']/g, '')
+  s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\[[^\]]*\]|\([^)]*\)/g, '').replace(/[\s"']/g, '')
 
 export function leerTabla(texto: string): TablaLeida {
   const lineas = texto.replace(new RegExp('^' + String.fromCharCode(0xfeff)), '').split(/\r?\n/).filter((l) => l.trim().length > 0)
